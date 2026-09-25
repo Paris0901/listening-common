@@ -1,0 +1,17 @@
+{
+  "name": "The Listening Commons",
+  "short_name": "Listening Commons",
+  "description": "Where conversations become common ground. An unhurried sanctuary for deep inquiry into mental health, human dignity, peace, and lived experience.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080B11",
+  "theme_color": "#080B11",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
