@@ -74,15 +74,34 @@
                     <span class="text-[11px] font-serif italic text-[#9a93a3]">Recorded {{ $featuredEpisode->published_at ? $featuredEpisode->published_at->format('M d, Y') : 'Sep 15, 2026' }}</span>
                 </div>
 
-                <!-- Lead Image / Visual Anchor -->
-                <div class="mt-5 relative overflow-hidden aspect-[16/10] bg-[#070d17] border border-[rgba(253,248,246,0.1)] group rounded-xl">
-                    <img alt="{{ $featuredEpisode->title }}" class="w-full h-full object-cover contrast-125 opacity-90 transition-transform duration-700 group-hover:scale-105 group-hover:opacity-100" src="{{ $featuredEpisode->artwork_url }}" />
-                    <div class="absolute bottom-3 left-3 bg-[#0a1620]/90 text-[#7fe3df] border border-[rgba(253,248,246,0.12)] px-2.5 py-1 text-[11px] font-mono tracking-widest uppercase rounded">
-                        Episode #{{ sprintf('%02d', $featuredEpisode->episode_number ?? 1) }}
+                <!-- Acoustic Frequency & Inquiry Excerpt (Imageless Audio Console) -->
+                <div class="mt-5 p-5 sm:p-6 bg-gradient-to-br from-[#070d17] via-[#0a1620] to-[#0f2230] border border-[rgba(253,248,246,0.1)] rounded-2xl relative overflow-hidden group">
+                    <!-- Subtle ambient glow background -->
+                    <div class="absolute -top-12 -right-12 w-40 h-40 bg-[#1fb8b8]/15 rounded-full blur-2xl pointer-events-none"></div>
+                    <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-[#ef6b9c]/15 rounded-full blur-2xl pointer-events-none"></div>
+
+                    <!-- Episode Number & Duration Badges -->
+                    <div class="flex items-center justify-between gap-3 mb-4 relative z-10">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0a1620]/90 border border-[#1fb8b8]/40 text-[#7fe3df] font-mono text-[11px] tracking-widest uppercase font-semibold">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#1fb8b8] animate-pulse"></span>
+                            Episode #{{ sprintf('%02d', $featuredEpisode->episode_number ?? 1) }}
+                        </div>
+                        <span class="font-mono text-xs text-[#9a93a3] px-2.5 py-1 rounded-md bg-[#0a1620]/80 border border-[rgba(253,248,246,0.1)]">
+                            {{ $featuredEpisode->formatted_duration ?? '57:00' }}
+                        </span>
                     </div>
-                    <div class="absolute bottom-3 right-3 bg-[#0f2230]/90 text-[#fdf8f6] px-2.5 py-1 text-[11px] font-mono tracking-widest border border-[rgba(253,248,246,0.12)] rounded">
-                        {{ $featuredEpisode->formatted_duration ?? '57:00' }}
+
+                    <!-- Interactive Waveform Amplitude Spectrum -->
+                    <div class="py-2 flex items-end justify-between gap-1 sm:gap-1.5 h-14 sm:h-16 border-b border-[rgba(253,248,246,0.08)] mb-4 relative z-10" aria-label="Audio Waveform Display">
+                        @foreach([25, 45, 35, 75, 60, 90, 40, 70, 85, 55, 35, 65, 80, 48, 95, 100, 75, 58, 85, 42, 65, 78, 50, 72, 88, 62, 38, 55, 78, 58, 40, 30] as $barHeight)
+                        <span class="waveform-bar flex-1 bg-gradient-to-t from-[#1fb8b8]/40 to-[#7fe3df]/80 hover:from-[#ef6b9c] hover:to-[#ffb3d1] rounded-full transition-all duration-300" style="height: {{ $barHeight }}%;"></span>
+                        @endforeach
                     </div>
+
+                    <!-- Narrative Inquiry Excerpt -->
+                    <blockquote class="relative z-10 font-serif italic text-xs sm:text-sm text-[#fdf8f6]/85 leading-relaxed line-clamp-3">
+                        &ldquo;{{ Str::limit($featuredEpisode->short_description ?? 'An unhurried sanctuary for deep inquiry into mental health, human dignity, and lived experience.', 170) }}&rdquo;
+                    </blockquote>
                 </div>
 
                 <!-- Episode Narrative & Meta -->
