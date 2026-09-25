@@ -5,7 +5,7 @@
 
 @section('content')
 <!-- BEGIN: HeroSection (Matching exact theme & aurora pattern from D:\website) -->
-<header class="hero relative pt-12 sm:pt-16 pb-16 sm:pb-24 border-b border-[rgba(253,248,246,0.1)] overflow-hidden" data-purpose="editorial-hero">
+<header class="hero relative pt-12 sm:pt-16 pb-8 border-b border-[rgba(253,248,246,0.1)] overflow-hidden" data-purpose="editorial-hero">
     <!-- Local Aurora Fluid Gradient Pattern -->
     <div class="aurora" aria-hidden="true">
         <span class="a1"></span>
@@ -57,7 +57,6 @@
                         <a class="px-3.5 py-1.5 text-xs font-sans text-[#fdf8f6] bg-[#0f2230] hover:bg-[#1fb8b8] hover:text-[#0a1620] border border-[rgba(253,248,246,0.12)] hover:border-[#1fb8b8] transition-all duration-150 rounded-full font-medium" href="{{ route('themes.show', 'peace-reconciliation') }}">Peace &amp; Reconciliation</a>
                         <a class="px-3.5 py-1.5 text-xs font-sans text-[#fdf8f6] bg-[#0f2230] hover:bg-[#1fb8b8] hover:text-[#0a1620] border border-[rgba(253,248,246,0.12)] hover:border-[#1fb8b8] transition-all duration-150 rounded-full font-medium" href="{{ route('themes.show', 'gender-belonging') }}">Gender &amp; Belonging</a>
                         <a class="px-3.5 py-1.5 text-xs font-sans text-[#fdf8f6] bg-[#0f2230] hover:bg-[#1fb8b8] hover:text-[#0a1620] border border-[rgba(253,248,246,0.12)] hover:border-[#1fb8b8] transition-all duration-150 rounded-full font-medium" href="{{ route('themes.show', 'ai-humanity') }}">AI &amp; Humanity</a>
-                        <a class="px-3.5 py-1.5 text-xs font-sans text-[#fdf8f6] bg-[#0f2230] hover:bg-[#1fb8b8] hover:text-[#0a1620] border border-[rgba(253,248,246,0.12)] hover:border-[#1fb8b8] transition-all duration-150 rounded-full font-medium" href="{{ route('themes.show', 'responsible-storytelling') }}">Storytelling</a>
                     </div>
                 </div>
             </div>
